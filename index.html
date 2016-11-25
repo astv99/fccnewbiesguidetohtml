@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Front-End Web Development Challenge</title>
+</head>
+
+<body>
+
+  <nav class="fixed-navbar">
+    <ul class="navbar-list">
+      <li class="navbar-item"><a href="#the-dom">The DOM</a></li>
+      <li class="navbar-item"><a href="#writing-semantic-html">Writing Semantic HTML</a></li>
+      <li class="navbar-item"><a href="#building-a-site">Building a Site</a></li>
+    </ul>
+  </nav>
+
+  <div id="page-content">
+
+    <h1 id="top">The FCC Newbie's Guide to HTML & Best Practices</h1><br /> (v1.0)
+    <p>written by <a class="extLink" href="https://forum.freecodecamp.com/users/astv99">astv99</a></p>
+    <p>&nbsp;</p>
+
+      <h2 id="intro">Introduction</h2>
+
+        <p>&nbsp;</p>
+        <h3>Who This Guide Is For</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>This guide is for "Campers" (FreeCodeCampers, that is) that may be either just
+            starting out in the curriculum or are part-way through it, or are maybe even past the
+            Front-End Development Certificate, to gain a better, more solid grounding in writing &
+            understanding HTML. It's assumed that you have at least a little bit of beginning
+            familiarity with HTML—at minimum, you should know what HTML is and how to write a very
+            simple page with basic headers. If you have no previous experience with HTML at all,
+            I'd recommend going through at least the first 3 lessons in FreeCodeCamp's <a 
+            class="extLink" href="https://www.freecodecamp.com/map-aside#nested-collapseHTML5andCSS"
+            >HTML5 and CSS</a> section before reading this guide.</p>
+            <p>&nbsp;</p>
+            <p>The concept for this guide was motivated by FreeCodeCamp's <a class="extLink" href=
+            "https://forum.freecodecamp.com/t/computer-frontend-web-development-challenge-november-16-to-26/"
+            >Frontend Web Development Challenge - November 16 to 26</a>, which had only these
+            requirements:</p>
+            <blockquote>
+              Create a web page (or multi-page web site or web application) that would be useful to
+              someone learning the FreeCodeCamp curriculum. Your imagination and initiative are the
+              only limits.
+            </blockquote>
+            <p>This page was implemented as a Tier 2 challenge: vanilla HTML, CSS, and JavaScript,
+            with absolutely no frameworks—no Bootstrap, jQuery, etc. You can view all code for this
+            web page over at my Github page. Making this page mobile-compatible without Bootstrap and
+            jQuery was a bit of a challenge, but I tried my best to make it look as good as I could.</p>
+            <p>&nbsp;</p>
+          </div>
+
+        <h3>About Me</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>My name is Steve Ham, and I go by "astv99" on the FCC forums. Like so
+            many others before me, I found FCC because I wanted to learn Web development. However,
+            my experience pre-FCC probably isn't the norm, as I'd already invested quite a bit of
+            time & money into other MOOCs for Web development (Coursera, Udemy, and Lynda.com
+            primarily), and I also have a long history with programming that goes all the way back
+            to BASIC, C, and HTML4, all of which I learned in the 90s when I was a kid. So why did
+            I get into FCC? Mostly because it was free, and I kept wanting to find the best learning
+            resources for modern Web development, as I had no previous experience with HTML5, CSS,
+            or JavaScript until 2015, to help make the transition towards a different career and
+            broaden my skill set at the same time.</p>
+            <p>&nbsp;</p>
+            <p>This guide is thus my attempt at coalescing the recent knowledge I've
+            gained in Web development from all the sources I've used over the past year.</p>
+            <p>&nbsp;</p>
+          </div>
+
+        <h3>About This Guide</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>This is a "living document" and I'm open to making any changes. Feel free to let me know
+            any suggestions for improvement by sending me a message via FCC.</p>
+            <p>&nbsp;</p>
+          </div>
+
+      <h2 id="the-dom">The DOM (Document Object Model)</h2>
+
+        <p>&nbsp;</p>
+        <h3>What's the DOM?</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>It's very important to know what the DOM is for two main reasons: (1) It'll help reinforce
+            writing your HTML to be as valid and correct as possible and to avoid errors that can
+            cause a variety of issues (primarily cross-browser compatibility), and (2) Having a solid
+            knowledge of the DOM will also help you to write JavaScript later on, to control the behavior
+            of your web pages. It's a shame that so many HTML tutorials and MOOCs on the Internet skip
+            the topic of the DOM, as it's foundational to everything related to Web development. In
+            short, knowing about the DOM will help you write better web pages.</p>
+            <p>&nbsp;</p>
+            <p>To put it in as plain English as possible, the DOM is essentially a specification. The
+            best real-world analogy might be to call it a type of assembly guide (like for furniture),
+            complete with the manual and parts so that you can build something—a web page, in this case.
+            Like any assembly guide, the DOM has a lot of built-in stuff with instructions that you
+            can use for certain tasks. There's no "instruction manual" per se, but the DOM does provide
+            an overview of how your web page should be formed from the top down, starting with the
+            HTML tag, then the HEAD tag (and everything within it), and the BODY tag, along with
+            everything within. The Wikipedia article on the DOM has a great <a 
+            class="extLink"
+            href="https://en.wikipedia.org/wiki/Document_Object_Model#/media/File:DOM-model.svg"
+            >visual diagram</a> that shows the flow and hierarchy of these tags/elements.</p>
+            <p>&nbsp;</p>
+            <p>The DOM also provides the "base architecture" for these HTML tags/elements (HTML,
+            HEAD, BODY, etc) and it's assumed that you'll fill them in on any web pages that you
+            write from scratch. But before we proceed further, let's clarify some terminology. The
+            term "HTML element" is not interchangeable with the term "HTML tag", as one is much more
+            abstract than the other. <b>Elements</b> can be thought of as an abstract concept in
+            terms of how you think about them, since you don't literally see them on your computer
+            screen. But with respect to the DOM, elements are actually considered what's called a
+            concrete "object" and can have certain properties and values associated with them, much
+            like how a physical object in the real-world has a set of properties associated with it
+            as well (like color and size for example). <b>Tags</b>, on the other hand, are literally
+            just the text that you see on your screen, whether it's "html", "head", "body", or others
+            like "h1", "a" (anchor), or "p" (paragraph). Note, however, that when you use the word
+            "tag", it also includes the angle brackets &lt; and &gt;, so that you can specifically
+            refer to either an opening or closing tag. For example, &lt;p&gt; is an opening tag,
+            while &lt;/p&gt; is a closing tag. The opening and closing tags together are generally
+            considered to form an element—i.e., most elements have an opening and closing tag (not
+            all elements do, like &lt;img&gt; and &lt;br /&gt; for instance).</p>
+            <p>&nbsp;</p>
+            <p>Using that terminology then, I can further expand on the concept of the DOM by adding
+            that it also includes the full possible set of HTML elements, which you can view a full
+            list of on <a class="extLink" href="https://developer.mozilla.org/en/docs/Web/HTML/Element"
+            >Mozilla's MDN site</a>. In a sense, you can consider the DOM as a sort of template as well,
+            which has a whole lot of "fill-in-the-blank" spots which is your job to fill in as a Web
+            developer. The blank spots are simply where you put in your HTML tags and the rest of your
+            content.</p>
+            <p>&nbsp;</p>
+            <p>In a sense, the DOM is like an amalgamation of the assembly guide and template concepts,
+            into a form that acts a lot like a skeleton—much like the human skeleton, where a finger
+            attaches to your hand, your hand is attached to your arm, your arm is attached to your
+            spinal cord, etc. In the same kind of way that all of the parts of your body are connected
+            and branch out at the same time, the elements in the DOM can also be connected, and
+            everything branches out from the root, which can be formally referred to as the <b>document</b>
+            node. This document node is so formalized that you do actually and literally call it
+            "document" whenever you use it, like in the function <code>document.getElementById()</code>,
+            often used in JavaScript code. And the branching structure is so formalized as well that
+            you can also think of elements to have "parents", "children", and "siblings", like in a
+            family tree diagram. A parent element is naturally the element that's one level higher
+            up than another, a child element is the element that's one level down from another, and
+            sibling elements are all at the same level as each other.</p>
+            <p>&nbsp;</p>
+          </div>
+
+      <h2 id="writing-semantic-html">Writing Semantic HTML</h2>
+
+        <p>&nbsp;</p>
+        <h3>Hierarchy &mdash; The Header Elements</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>The header elements (<b>&lt;h1&gt;</b> through <b>&lt;h6&gt;</b>) define headers in your
+            web page and help divide the page structure accordingly to break it down into segments.
+            Even though their font sizes get progressively visually smaller, their function is for
+            more than just visual appearance to act as sectional headers—the DOM actually uses the
+            header elements to form a top-down hierarchy of your page structure.</p>
+            <p>&nbsp;</p>
+            <p>Let's pause to think about this a moment, because this is an important detail, and newbies
+            to HTML often mis-use these headers, inadvertently bungling the structure of their web
+            pages and adversely affecting the search engine optimization (SEO) of their pages as well.
+            Let's take the example of writing an essay on a topic, as most people have written essays
+            in school before, so hopefully this is a familiar concept to everyone. Have you ever written
+            an essay where you <em>didn't</em> put some thought into how you were going to structure it?
+            I'm guessing the answer will be no for nearly everyone—in fact, writing essays is such a
+            common assignment in school that there's even a formal structure for it: the intro, the body
+            with 3 arguments, and the conclusion, right? So when someone else reads your essay, and they
+            know how it's supposed to be structured, they know where to look in your essay for a
+            specific point, like your thesis. And if anything is missing, they know that your essay
+            is incomplete.</p>
+            <p>&nbsp;</p>
+            <p>It's kind of like that with the HTML header elements as well. They're actually used to
+            fill in spots in the DOM template that provide a formal structure for the page, or your
+            "document", which I'll use going forward instead of the word "page", as "page" refers more
+            to the visible thing you see in your browser while "document" refers more to the invisible
+            behind-the-scenes in-the-computer object that's being "assembled" by your Web browser.
+            If you <em>don't</em> put an &lt;h1&gt; in your HTML document, that's an error. You
+            <em>should</em> put it in. This is where some newbies make their first mistake with the
+            header tags, and think they can skip &lt;h1&gt; and start with &lt;h2&gt or &lt;h3&gt.
+            But that's not correct, because is there anyone in the world who <em>doesn't</em> count
+            starting at 1? Why would anyone start counting at 2 or 3, when that doesn't make sense?
+            So it should make total sense to always start with the &lt;h1&gt; element in your document.</p>
+            <p>&nbsp;</p>
+            <p>This is also, however, where a second mistake can be made in thinking that you can place
+            more than one &lt;h1&gt; in your document. But if you pause to think about it, that doesn't
+            make sense either. The &lt;h1&gt; element is the top-level, highest-ranked header. &lt;h2&gt;
+            through &lt;h6&gt; all fall below it in the hierarchy, so why would you place another
+            &lt;h1&gt; in the same document? It can help to think of &lt;h1&gt; as the document label,
+            or to put it another way, the page title. From a content point of view, it should basically
+            mirror what's in the &lt;title&gt; tag for the page. So in the same way that you should
+            change the &lt;title&gt; tag for each individual HTML file that you create, you should
+            also change the &lt;h1&gt; tag for each HTML file as well. And then, from there, you can
+            add any lower-hierarchy headers that you might need.</p>
+            <p>&nbsp;</p>
+            <p>Some readers might be wondering at this point, do you <em>need</em> to use the header
+            elements in every document that you create? My answer to that is: maybe not, but why not use
+            them? I can't think of a good reason to never not use them, and there are plenty of good
+            reasons to do so—they can make your page content easier to target via CSS (or JavaScript),
+            easier to maintain as a Web developer (including by other developers), and easier to
+            interpret by search engines, which will boost your SEO!</p>
+            <p>&nbsp;</p>
+          </div>
+
+        <h3>Accessibility &mdash; The &lt;em&gt; and &lt;strong&gt; tags</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>When we all start out building Web pages as developers, we tend to focus more on actually
+            writing the code and less on how other people are going to read our content. It's only natural,
+            after all, especially when a lot of tutorials and MOOCs rarely even bring up the issue of UI
+            (User Interface) and UX (User eXperience). And you might even think, isn't that what Web
+            <em>designers</em> are for? Why would I need to worry about that as a developer?</p>
+            <p>&nbsp;</p>
+            <p>The truth is, unless you're working with a Web designer, and even if you already are,
+            paying careful attention to the UI and UX that you create is equally as important as your
+            code. Because no one is going to want to read your content, as great as it may be, if they
+            have any difficulties reading it. What sort of difficulties, you might ask? Let's consider
+            some possibilities—some people don't have perfect 20/20 vision and may need to use magnification
+            on your Web page if something appears too small, others may have motor control issues and may
+            have trouble typing on a computer keyboard, others may be color-blind and may not be able
+            to see certain colors, and others could even be totally blind and unable to see but still
+            have full function of their other senses. What does this mean? It means you should remember
+            to make your content <em>accessible</em> for people who have a disability. And you might
+            be wondering, how do disabled people access the Web? They can do it through a variety of
+            ways, but a common one is by using what's called a <a class="extLink" href=
+            "https://en.wikipedia.org/wiki/Screen_reader">screen reader</a>, which is software that
+            takes the visual content on the Web and "translates" it into auditory content for people
+            who may be visually-impaired in some way.</p>
+            <p>&nbsp;</p>
+            <p>With this in mind then, I'll try to address one of the most common mistakes that I've
+            seen HTML newbies make, which is improper use of the <b>&lt;em&gt;</b>, <b>&lt;strong&gt;</b>,
+            <b>&lt;i&gt;</b>, and <b>&lt;b&gt</b>; tags. First, just a bit of history here. The &lt;i&gt;
+            and &lt;b&gt; tags have been around since the inception of HTML, and were originally for 
+            developers to simply italicize and bolden text. They were commonly used as "presentational"
+            visual cues, in order to visually show differences in the text. However, if you pause to
+            think about it, italic and bold text can have a lot of different uses on not only a computer
+            screen but also on paper. If you're writing citations for a report, italics can denote the
+            title of a book, movie, magazine, etc. And bold text can denote sectional headers, labels,
+            or an arbitrary word that you just want to emphasize. This is all stuff that most people
+            already know, or should know. But what happens when you're transcribing speech to text? Or
+            writing a story? When it comes to speech in the English language, people naturally tend to
+            emphasize certain words over others in certain scenarios, and placing emphasis on a
+            different word can totally change the meaning of a sentence.</p>
+            <p>&nbsp;</p>
+            <p>As an example, let's take the sentence "What are you doing?" This is a very common saying
+            in the English language, but it can take on entirely meanings in different situations.
+            Imagine emphasis on the first word, and say it out loud: "<em>What</em> are you doing?" How
+            about the second word instead: "What <em>are</em> you doing?" Or the third word: "What are
+            <em>you</em> doing?" Or the last word: "What are you <em>doing</em>?" Did you notice how the
+            question dramatically changed tone depending on which word was emphasized? The first two forms
+            could be considered friendly, almost conversational, but the latter two took on a decidedly
+            accusatory tone and anxious tone, respectively, right? So as you just saw from this example,
+            it's possible to either capture or set a certain tone depending on which word you emphasize
+            in a sentence.</p>
+            <p>&nbsp;</p>
+            <p>And that sort of instance is exactly where you should use the <b>&lt;em&gt;</b> tag. The
+            &lt;em&gt; tag is short for "emphasis", which means exactly what you think it means, emphasis
+            of the contained text. The reason you should use the &lt;em&gt; tag is for screen readers,
+            which will vocalize that word a bit differently when they read it aloud, which will further
+            help a disabled person to understand the meaning of your content. Of course, if you
+            <em>don't</em> want a screen reader to vocalize a certain word differently, then that's where
+            you use the standard &lt;i&gt; tag instead, since it's strictly visual and won't change
+            the meaning of your content.</p>
+            <p>&nbsp;</p>
+            <p>The <b>&lt;strong&gt;</b> tag is very similarly used, except its meaning is for words
+            that should have a very strong emphasis, sort of like a verbal command, or a severe warning,
+            or other similarly strong words, like for example, "Stop!" or "Fire!" for instance. And
+            similarly, if you <strong>don't</strong> want a screen reader to vocally emphasize the word,
+            just use the &lt;b&gt; tag. The &lt;b&gt; tag is for all other strictly-visual purposes
+            when it comes to bold text.</p>
+            <p>&nbsp;</p>
+            <p>To summarize this section, always use the <b>&lt;em&gt;</b> and <b>&lt;strong&gt;</b>
+            tags whenever you want to appropriately emphasize certain words for disabled people using
+            screen readers, and <em>only</em> then as well, because you sure don't want to leave any
+            unintentional usages that may cause a disabled person to get confused. In all other
+            instances, stick to using the &lt;i&gt; and &lt;b&gt; tags.</p>
+            <p>&nbsp;</p>
+          </div>
+
+      <h2 id="building-a-site">Building a Site</h2>
+
+        <p>&nbsp;</p>
+        <h3>HTML First</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>If you've been on the Web for any length of time, you may have heard the saying that
+            "Content is king." In the context of Web development, it basically means that your page
+            content is the most important asset, because if your page content isn't compelling for at
+            least one person, what's the point of building it? This relates to the concept of "HTML First"
+            because your HTML code <em>is</em> your content. Or, to put it more accurately, your content
+            is <em>in</em> your HTML files. So if we're going with the content-first approach, it means
+            that you should build your content first. What does this mean exactly?</p>
+            <p>&nbsp;</p>
+            <p>Basically, it means that you should start forming your content independently of the
+            HTML code. If you plan on doing any lengthy writing, you may want to consider writing it
+            up in a word processing application (like Microsoft Word, Apple Pages, Google Docs, etc)
+            first, because after all, where else are you going to find convenient features like spell
+            or grammar check? If you're going to be building a more visual- or media-oriented web page,
+            then why not plan out the design of how it's going to look and act before you ever write
+            a single line of code? This level of attention to pre-planning your content will do two
+            things: (1) it'll help make you certain of which assets you're actually going to use and
+            might not use, (2) it'll give you a concrete idea of what you'll need to do once you hit
+            the Web development stage. Basically, it's all about design before development.</p>
+            <p>&nbsp;</p>
+            <p>And then, once you have your assets and a concept of your design, then you can begin
+            to translate all of your content to HTML, and HTML only. Don't skip any steps and try to
+            do any CSS first or at the same time, or add any JavaScript yet. All of that can come
+            afterwards. The more important thing is to create all of your HTML first, and get it all
+            on the virtual page. Then, once you have all of the HTML down, you can begin the second
+            phase, which is CSS, followed by the third phase, which is JavaScript. This is the
+            most-often recommended path to take when building a web site, and I can't recommend it
+            myself enough either: HTML first, CSS second, and JavaScript third.</p>
+            <p>&nbsp;</p>
+          </div>
+
+        <h3>Sizing Text (CSS)</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>Although the subject of CSS is beyond the scope of this guide, I wanted to briefly
+            cover the subject of sizing text, because it's one of the most common things that I've
+            seen newbies inadvertently make a mistake doing, because there's no good material on the
+            Web that really covers this subject properly. There are 3 main ways to size text on the Web,
+            and as a Web developer it helps to be aware of all of them so you know when to use each one,
+            and when <em>not</em> to use each one, because they all have their pros and cons. In no
+            particular order, you can size by: pixels, ems, or percentage.</p>
+            <p>&nbsp;</p>
+            <p><b>Pixels</b>: Setting font size by pixels is by far the most common way to set a font
+            size, but it's also by far the most problematic. Why? Because pixels are not created equally
+            on all computer and device screens. Take for example my particular Android smartphone, the
+            Motorola Moto E 2<sup>nd</sup> Gen, which has a display resolution of 540x960 and has a density
+            of 245 ppi (pixels per inch). Compare that to the current state-of-the-art 4K monitors, which
+            top out at a resolution of 4000x2000 and thus have a much higher ppi. The pixels on a
+            4K monitor are going to be much smaller, as you'd expect, and what you think might be a
+            normal 16-pixel font could end up looking extra tiny on a 4K monitor. So as you can see,
+            you can't size by pixels all the time for all displays. Sure, you could use CSS media
+            queries to adjust by resolution, but that'd be an extremely inefficient solution. What
+            should you consider using instead? Ems, which are covered next.</p>
+            <p>&nbsp;</p>
+            <p><b>Ems</b>: If you haven't heard of ems before, you're not alone, because it's not often
+            brought up in HTML or CSS tutorials. An 'em' is a single unit of measurement that changes
+            size depending on the display resolution and browser settings. Basically, you can think of
+            1 em to mean both the width, and height, of the capital letter 'M' in the default font and
+            size of your Web browser. For most Web browsers, that default size tends to be 16 at medium
+            resolutions, but the size can vary, and you can manually override it as well. In most cases,
+            though, 1 em turns out to be the height & width of the capital 'M', usually in Times New
+            Roman, at a size of 16 (at medium resolutions). So, setting your font size at 1 em
+            essentially means that you want the default font size from the Web browser, and doing it
+            that way ensures that your text will be readable on all devices, because naturally the
+            default size will be smaller on a lower-resolution display and larger on a higher-resolution
+            display. And increasing your font size by ems will ensure that all of your text scales up
+            appropriately. How do you use ems? Notationally it's very similar to pixels, you just write
+            it like this (note that there's no space between the number and unit):
+            <code>font-size: 1em</code>. Ems can be fractional, so if you need to use a value between
+            1 and 2, or 2 and 3, just add a single value after the decimal point: <code>1.2em</code>
+            or <code>2.4em</code>. You can also use values between 0 and 1 to reduce size, like:
+            <code>0.8em</code> for instance.</p>
+            <p>&nbsp;</p>
+            <p>For more info on ems, the W3 site has a lot of in-depth info on it in <a class="extLink"
+            href="https://www.w3.org/WAI/GL/css2em.htm">Chapter 4</a> of the WAI.</p>
+            <p>&nbsp;</p>
+            <p><b>Percentage</b>: Another widely used method of sizing text, it's likely that you're
+            probably already familiar with this. Like ems, using percentages is a responsive technique
+            as well, but it's a bit less intuitive to use, and ends up having a few quirks that make it
+            a bit problematic to use (like in nested elements). If you're using percentages, it's
+            usually best to limit where you use them, as the technique can have unintended side effects.</p>
+            <p>&nbsp;</p>
+          </div>
+
+        <h3>Checking Your Code</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>It's so easy to check your HTML code these days that there's really no good excuse for
+            <em>not</em> doing it. Here's a brief list of some resources that you should either note
+            or bookmark and use often on every Web page that you build from now on:</p>
+            <p>&nbsp;</p>
+          </div>
+            <ul>
+              <li class="li-default"><b>Mozilla Firefox's built-in HTML error checker</b> (right-click and select
+                "View Page Source" to use) <span class="error">(elements with errors are colored in red
+                like this text)</span></li>
+              <li class="li-default"><a class="extLink" href="https://validator.w3.org/">W3C Validator</a>:
+                for error-checking your HTML</li>
+              <li class="li-default"><a class="extLink" href="http://achecker.ca/checker/index.php">IDI
+                Web Accessibility Checker</a>: for accessibility-checking your HTML</li>
+            </ul>
+            <p>&nbsp;</p>
+
+        <h3>Checking Your Render</h3>
+
+          <div class="justify">
+            <p>&nbsp;</p>
+            <p>It's just as easy these days to check how your page renders that there's no good excuse
+            to <em>not</em> install every major Web browser on your computer that you can to check
+            for possible display issues in other browsers. Here are the major Web browsers that you
+            should always be checking your pages with, in approximate order of prevalence:</p>
+          </div>
+            <p>&nbsp;</p>
+            <ul>
+              <li class="li-default">Google <a class="extLink" href="https://www.google.com/chrome/"
+                >Chrome</a></li>
+              <li class="li-default">Mozilla <a class="extLink" href="https://www.mozilla.org/en-US/firefox/new/"
+                >Firefox</a></li>
+              <li class="li-default">Opera Software <a class="extLink" href="http://www.opera.com/"
+                >Opera</a></li>
+              <li class="li-default">Apple <a class="extLink" href="https://support.apple.com/safari"
+                >Safari</a></li>
+              <li class="li-default">Microsoft <a class="extLink" href=
+                "https://www.microsoft.com/en-us/download/internet-explorer.aspx">Internet Explorer</a>
+                (Windows 8 and earlier) <i>(also still available on Windows 10)</i></li>
+              <li class="li-default">Microsoft <a class="extLink" href=
+                "https://www.microsoft.com/en-us/download/details.aspx?id=48126">Edge</a> (Windows 10)</li>
+            </ul>
+            <p>&nbsp;</p>
+
+      <h2>References</h2>
+
+        <p>&nbsp;</p>
+        <h3>Books</h3>
+
+          <ul>
+            <li class="li-default"><a class="extLink" href=
+              "https://www.amazon.com/HTML-CSS-Design-Build-Websites/dp/1118008189"><i>HTML & CSS:
+              Design and Build Web Sites</i></a> by Jon Duckett</li>
+          </ul>
+          <p>&nbsp;</p>
+
+        <h3>MOOCs (Massive Open Online Courses)</h3>
+
+          <ul>
+            <li class="li-default"><a class="extLink" 
+              href="https://www.lynda.com/HTML-tutorials/HTML-Essential-Training/170427-2.html"
+              >HTML Essential Training</a> course by James Williamson on Lynda.com</li>
+            <li class="li-default"><a class="extLink"
+              href="https://www.lynda.com/Web-Interactive-CSS-tutorials/CSS-Core-Concepts/80435-2.html"
+              >CSS Essential Training</a> course by James Williamson on Lynda.com</li>
+            <li class="li-default"><a class="extLink" href=
+          "https://www.lynda.com/User-Experience-tutorials/User-Experience-Fundamentals-Web-Design/421802-2.html"
+              >User Experience Fundamentals for Web Design</a> course by Chris Nodder on Lynda.com</li>
+            <li class="li-default"><a class="extLink"
+              href="https://www.lynda.com/Accessibility-tutorials/Foundations-UX-Accessibility/435008-2.html"
+              >Foundations of UX: Accessibility</a> course by Derek Featherstone on Lynda.com</li>
+            <li class="li-default"><a class="extLink" href=
+              "https://www.coursera.org/learn/website-coding/home/welcome">Responsive Website Basics:
+              Code with HTML, CSS, and JavaScript</a> course on Coursera.org</li>
+          </ul>
+
+        <div id="back-to-top" class="center">
+          <a href="#top"><img src="images/chevron.png"><br />back to top</a>
+        </div>
+
+        <footer>
+          &copy; 2016
+        </footer>
+
+  </div> <!-- end content -->
+
+  <script src="index.js" type="text/javascript"></script>
+
+</body>
+
+</html>
