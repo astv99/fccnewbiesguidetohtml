@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", function (evt) {
     }
 });
 
-// vertical padding for navbar links
+// vertical scroll padding for the navbar
 var windowWidth = window.innerWidth;
 var verticalScrollPadding = 0;
-if (windowWidth <= 584) {
+if (windowWidth <= 584) { // mobile width
     verticalScrollPadding = -110;
-} else {
+} else { // desktop width
     verticalScrollPadding = -60;
 }
 var shiftWindow = function () { scrollBy(0, verticalScrollPadding) };

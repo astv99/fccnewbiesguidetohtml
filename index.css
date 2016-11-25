@@ -19,11 +19,11 @@ body {
 }
 
 a {
-    color: #006400; /* 444444 35828A */
+    color: #006400;
 }
 
 a:active {
-    color: #880088; /* 880088 */
+    color: #880088;
 }
 
 .fixed-navbar {
@@ -45,7 +45,6 @@ a:active {
 }
 
 .navbar-item {
-    /* float: left; */
     display: inline-block;
 }
 
@@ -144,12 +143,11 @@ footer {
     }
 
     .navbar-item {
-        /* float: none; */
         display: inline;
     }
 
     .navbar-item a {
-        display: block; /* block */
+        display: block;
         color: white;
         font-size: 0.9em;
         padding: 8px 10px;
