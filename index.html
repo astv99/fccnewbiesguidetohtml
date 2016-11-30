@@ -64,14 +64,14 @@
             <p>&nbsp;</p>
             <p>My name is Steve Ham, and I go by "astv99" on the FCC forums. Like so
             many others before me, I found FCC because I wanted to learn Web development. However,
-            my experience pre-FCC probably isn't the norm, as I'd already invested quite a bit of
-            time & money into other MOOCs for Web development (Coursera, Udemy, and Lynda.com
-            primarily), and I also have a long history with programming that goes all the way back
-            to BASIC, C, and HTML4, all of which I learned in the 90s when I was a kid. So why did
-            I get into FCC? Mostly because it was free, and I kept wanting to find the best learning
-            resources for modern Web development, as I had no previous experience with HTML5, CSS,
-            or JavaScript until 2015, to help make the transition towards a different career and
-            broaden my skill set at the same time.</p>
+            before I found FCC I'd already invested quite a bit of time & money into other MOOCs
+            for Web development (Coursera, Udemy, and Lynda.com primarily), and I also have a long
+            history with programming that goes all the way back to BASIC, C, and HTML4, all of
+            which I learned in the 90s as a kid. So why did I get into FCC? Mostly because it was
+            free, and I kept wanting to find the best learning resources for modern Web development,
+            as I had no previous experience with HTML5, CSS, or JavaScript until 2015, and was
+            looking to make the transition towards a different career and broaden my skill set at
+            the same time.</p>
             <p>&nbsp;</p>
             <p>This guide is thus my attempt at coalescing the recent knowledge I've
             gained in Web development from all the sources I've used over the past year.</p>
@@ -83,7 +83,8 @@
           <div class="justify">
             <p>&nbsp;</p>
             <p>This is a "living document" and I'm open to making any changes. Feel free to let me know
-            any suggestions for improvement by sending me a message via FCC.</p>
+            any suggestions for improvement by <a class="extLink" href=
+            "https://forum.freecodecamp.com/users/astv99">messaging me via FCC</a>.</p>
             <p>&nbsp;</p>
           </div>
 
@@ -98,9 +99,8 @@
             writing your HTML to be as valid and correct as possible and to avoid errors that can
             cause a variety of issues (primarily cross-browser compatibility), and (2) Having a solid
             knowledge of the DOM will also help you to write JavaScript later on, to control the behavior
-            of your web pages. It's a shame that so many HTML tutorials and MOOCs on the Internet skip
-            the topic of the DOM, as it's foundational to everything related to Web development. In
-            short, knowing about the DOM will help you to write better web pages.</p>
+            of your web pages. The DOM is foundational to everything related to Web development, and
+            knowing about it will help you to write better web pages.</p>
             <p>&nbsp;</p>
             <p>To put it in as plain English as possible, the DOM is essentially a specification. The
             best real-world analogy might be to call it a type of assembly guide (like for furniture),
@@ -108,29 +108,30 @@
             Like any assembly guide, the DOM has a lot of built-in stuff with instructions that you
             can use for certain tasks. There's no "instruction manual" per se, but the DOM does provide
             an overview of how your web page should be formed from the top down, starting with the
-            HTML tag, then the HEAD tag (and everything within it), and the BODY tag, along with
-            everything within. The Wikipedia article on the DOM has a great <a 
+            &lt;html&gt; tag, then the &lt;head&gt; tag (and everything within it), and the &lt;body&gt;
+            tag, along with everything within. The Wikipedia article on the DOM has a great <a 
             class="extLink"
             href="https://en.wikipedia.org/wiki/Document_Object_Model#/media/File:DOM-model.svg"
             >visual diagram</a> that shows the flow and hierarchy of these tags/elements.</p>
             <p>&nbsp;</p>
-            <p>The DOM also provides the "base architecture" for these HTML tags/elements (HTML,
-            HEAD, BODY, etc) and it's assumed that you'll fill them in on any web pages that you
-            write from scratch. But before we proceed further, let's clarify some terminology. The
-            term "HTML element" is not interchangeable with the term "HTML tag", as one is much more
-            abstract than the other. <b>Elements</b> can be thought of as an abstract concept in
-            terms of how you think about them, since you don't literally see them on your computer
-            screen. But with respect to the DOM, elements are actually considered what's called a
-            concrete "object" and can have certain properties and values associated with them, much
-            like how a physical object in the real-world has a set of properties associated with it
-            as well (like color and size for example). <b>Tags</b>, on the other hand, are literally
-            just the text that you see on your screen, whether it's "html", "head", "body", or others
-            like "h1", "a" (anchor), or "p" (paragraph). Note, however, that when you use the word
-            "tag", it also includes the angle brackets &lt; and &gt;, so that you can specifically
-            refer to either an opening or closing tag. For example, &lt;p&gt; is an opening tag,
-            while &lt;/p&gt; is a closing tag. The opening and closing tags together are generally
-            considered to form an element—i.e., most elements have an opening and closing tag (not
-            all elements do, like &lt;img&gt; and &lt;br /&gt; for instance).</p>
+            <p>The DOM also provides the "base architecture" for these HTML tags/elements (&lt;html&gt;,
+            &lt;head&gt;, &lt;body&gt;, etc) and it's assumed that you'll fill them in on any web
+            pages that you write from scratch. But before we proceed further, let's clarify some
+            terminology. The term "HTML element" is not interchangeable with the term "HTML tag",
+            as one is much more abstract than the other. <b>Elements</b> can be thought of as an
+            abstract concept in terms of how you think about them, since you don't literally see
+            them on your computer screen. But with respect to the DOM, elements are actually
+            considered what's called a concrete "object" and can have certain properties and values
+            associated with them, much like how a physical object in the real-world has a set of
+            properties associated with it as well (like color and size for example). <b>Tags</b>,
+            on the other hand, are literally just the text that you see on your screen, whether
+            it's "html", "head", "body", or others like "h1", "a" (anchor), or "p" (paragraph).
+            Note, however, that when you use the word "tag", it also includes the angle brackets
+            &lt; and &gt;, so that you can specifically refer to either an opening or closing tag.
+            For example, &lt;p&gt; is an opening tag, while &lt;/p&gt; is a closing tag. The opening
+            and closing tags together are generally considered to form an element—i.e., most
+            elements have an opening and closing tag (not all elements do, like &lt;img&gt; and
+            &lt;br /&gt; for instance).</p>
             <p>&nbsp;</p>
             <p>Using that terminology then, I can further expand on the concept of the DOM by adding
             that it also includes the full possible set of HTML elements, which you can view a full
@@ -140,19 +141,20 @@
             developer. The blank spots are simply where you put in your HTML tags and the rest of your
             content.</p>
             <p>&nbsp;</p>
-            <p>In a sense, the DOM is like an amalgamation of the assembly guide and template concepts,
-            into a form that acts a lot like a skeleton—much like the human skeleton, where a finger
-            attaches to your hand, your hand is attached to your arm, your arm is attached to your
-            spinal cord, etc. In the same kind of way that all of the parts of your body are connected
-            and branch out at the same time, the elements in the DOM can also be connected, and
-            everything branches out from the root, which can be formally referred to as the <b>document</b>
-            node. This document node is so formalized that you do actually and literally call it
-            "document" whenever you use it, like in the function <code>document.getElementById()</code>,
-            often used in JavaScript code. And the branching structure is so formalized as well that
-            you can also think of elements to have "parents", "children", and "siblings", like in a
-            family tree diagram. A parent element is naturally the element that's one level higher
-            up than another, a child element is the element that's one level down from another, and
-            sibling elements are all at the same level as each other.</p>
+            <p>In a sense, the DOM is like an amalgamation of the assembly guide and template
+            concepts, into a form that acts a lot like a skeleton—sort of like the human skeleton,
+            where the fingers attach to your wrist, which attaches to your forearm, which in turn
+            attaches to your upper arm, and so on. In the same kind of way that all of the parts of
+            your body are connected and branch out at the same time, the elements in the DOM can
+            also be connected, and everything branches out from the root, which can be formally
+            referred to as the <b>document</b> node. This document node is so formalized that you
+            do actually and literally call it "document" whenever you use it, like in the function
+            <code>document.getElementById()</code>, often used in JavaScript code. And the branching
+            structure is so formalized as well that you can also think of elements to have "parents",
+            "children", and "siblings", like in a family tree diagram. A parent element is naturally
+            the element that's one level higher up than another, a child element is the element
+            that's one level down from another, and sibling elements are all at the same level as
+            each other.</p>
             <p>&nbsp;</p>
           </div>
 
@@ -167,10 +169,10 @@
             web page and help divide the page structure accordingly to break it down into segments.
             Even though their font sizes get progressively visually smaller, their function is for
             more than just visual appearance to act as sectional headers—the DOM actually uses the
-            header elements to form a top-down hierarchy of your page structure.</p>
+            header elements to form a top-down hierarchical structure of your page.</p>
             <p>&nbsp;</p>
             <p>Let's pause to think about this a moment, because this is an important detail, and newbies
-            to HTML often mis-use these headers, inadvertently bungling the structure of their web
+            to HTML often mis-use these headers, inadvertently mangling the structure of their web
             pages and adversely affecting the search engine optimization (SEO) of their pages as well.
             Let's take the example of writing an essay on a topic, as most people have written essays
             in school before, so hopefully this is a familiar concept to everyone. Have you ever written
@@ -188,13 +190,14 @@
             to the visible thing you see in your browser while "document" refers more to the invisible
             behind-the-scenes in-the-computer object that's being "assembled" by your Web browser.
             If you <em>don't</em> put an &lt;h1&gt; in your HTML document, that's an error. You
-            <em>should</em> put it in. This is where some newbies make their first mistake with the
-            header tags, and think they can skip &lt;h1&gt; and start with &lt;h2&gt; or &lt;h3&gt;.
-            But that's not correct, because is there anyone in the world who <em>doesn't</em> count
-            starting at 1? Why would anyone start counting at 2 or 3, when that doesn't make sense?
-            So it should make total sense to always start with the &lt;h1&gt; element in your document.</p>
+            <em>should</em> put it in. This is where a common mistake is often made, and some might
+            think they can skip &lt;h1&gt; and start with &lt;h2&gt; or &lt;h3&gt;. But that's not
+            correct, because is there anyone in the world who <em>doesn't</em> count starting at 1?
+            Why would anyone start counting at 2 or 3, when that doesn't make sense? So it should
+            make total sense to always start with the &lt;h1&gt; element in your document when
+            beginning with the headers.</p>
             <p>&nbsp;</p>
-            <p>This is also, however, where a second mistake can be made in thinking that you can place
+            <p>This is also, however, where another mistake is often made in thinking that you can place
             more than one &lt;h1&gt; in your document. But if you pause to think about it, that doesn't
             make sense either. The &lt;h1&gt; element is the top-level, highest-ranked header. &lt;h2&gt;
             through &lt;h6&gt; all fall below it in the hierarchy, so why would you place another
@@ -240,8 +243,8 @@
             takes the visual content on the Web and "translates" it into auditory content for people
             who may be visually-impaired in some way.</p>
             <p>&nbsp;</p>
-            <p>With this in mind then, I'll try to address one of the most common mistakes that I've
-            seen HTML newbies make, which is improper use of the <b>&lt;em&gt;</b>, <b>&lt;strong&gt;</b>,
+            <p>With this in mind then, I'll try to address one of the most common mistakes that is
+            typically made, which is improper use of the <b>&lt;em&gt;</b>, <b>&lt;strong&gt;</b>,
             <b>&lt;i&gt;</b>, and <b>&lt;b&gt;</b> tags. First, just a bit of history here. The &lt;i&gt;
             and &lt;b&gt; tags have been around since the inception of HTML, and were originally for 
             developers to simply italicize and bolden text. They were commonly used as "presentational"
@@ -311,10 +314,10 @@
             first, because after all, where else are you going to find convenient features like spell
             or grammar check? If you're going to be building a more visual- or media-oriented web page,
             then why not plan out the design of how it's going to look and act before you ever write
-            a single line of code? This level of attention to pre-planning your content will do two
-            things: (1) it'll help make you certain of which assets you're actually going to use and
-            might not use, (2) it'll give you a concrete idea of what you'll need to do once you hit
-            the Web development stage. Basically, it's all about design before development.</p>
+            a single line of HTML code? This level of attention to pre-planning your content will do
+            two things: (1) it'll help make you certain of which assets you're actually going to use
+            and might not use, (2) it'll give you a concrete idea of what you'll need to do once you
+            hit the Web development stage. Basically, it's all about design before development.</p>
             <p>&nbsp;</p>
             <p>And then, once you have your assets and a concept of your design, then you can begin
             to translate all of your content to HTML, and HTML only. Don't skip any steps and try to
@@ -332,12 +335,12 @@
           <div class="justify">
             <p>&nbsp;</p>
             <p>Although the subject of CSS is beyond the scope of this guide, I wanted to briefly
-            cover the subject of sizing text, because it's one of the most common things that I've
-            seen newbies inadvertently make a mistake doing, because there's no good material on the
-            Web that really covers this subject properly. There are 3 main ways to size text on the Web,
-            and as a Web developer it helps to be aware of all of them so you know when to use each one,
-            and when <em>not</em> to use each one, because they all have their pros and cons. In no
-            particular order, you can size by: pixels, ems, or percentage.</p>
+            cover the subject of sizing text, because it's yet another area in which mistakes are
+            often made, due to the lack of good material on the Web that covers this subject
+            properly. There are 3 main ways to size text on the Web, and as a Web developer it
+            helps to be aware of all of them so you know when to use each one, and when <em>not</em>
+            to use each one, because they all have their pros and cons. In no particular order, you
+            can size by: pixels, ems, or percentage.</p>
             <p>&nbsp;</p>
             <p><b>Pixels</b>: Setting font size by pixels is by far the most common way to set a font
             size, but it's also by far the most problematic. Why? Because pixels are not created equally

@@ -6,7 +6,7 @@
 - *Live URL*:			[http://fccnewbiesguidetohtml.surge.sh/](http://fccnewbiesguidetohtml.surge.sh/)
 
 ------------------
-**Description *(copied from FreeCodeCamp)***
+**Description (copied from FreeCodeCamp)**
 
 > Create a web page (or multi-page web site or web application) that would be useful to someone learning the FreeCodeCamp curriculum. Your imagination and initiative are the only limits.
 
